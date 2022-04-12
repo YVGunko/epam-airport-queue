@@ -1,5 +1,6 @@
 public class Runway {
-	private int landCount = 0;
+	private final String tookRunway = "enter the ";
+	private int tookCount = 0;
 	private int departCount = 0;
 	private int name;
 	
@@ -8,14 +9,13 @@ public class Runway {
 	}
 	
 	public void printReport() {
-		System.out.println("Runway " + name + " has a total of "+ landCount + " landings.");
+		System.out.println("Runway " + name + " has a total of "+ tookCount + " takes.");
 		System.out.println("Runway " + name + " has a total of "+ departCount + " departures.");
-		System.out.println("Runway " + name + " has a combined total of "+ getCount() + " uses.");
 	}
 
 	public void inc(String status) {
-		if (status.equals("land")) {
-			landCount++;
+		if (status.equals(tookRunway)) {
+			tookCount++;
 		} else {
 			departCount++;
 		}
@@ -26,14 +26,14 @@ public class Runway {
 	}
 
 	public int getLandCount() {
-		return landCount;
+		return tookCount;
 	}
 
 	public int getDepartCount() {
 		return departCount;
 	}
-	
+
 	public int getCount() {
-		return departCount + landCount;
+		return departCount + tookCount;
 	}
 }
